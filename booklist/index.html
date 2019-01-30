@@ -10,7 +10,7 @@
     <link rel="icon" href="/favicon.jpg">
   
     
-  <title>关于作者 | Kelvin&#39;s blog</title>
+  <title>阅读书单 | Kelvin&#39;s blog</title>
   <link rel="stylesheet" href="/style.css">
   <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -44,13 +44,13 @@
       
         <li class="nav-item">
           
-            <a href="/about" class="item-link active">关于</a>
+            <a href="/about" class="item-link">关于</a>
           
         </li>
       
         <li class="nav-item">
           
-            <a href="/booklist" class="item-link">书单</a>
+            <a href="/booklist" class="item-link active">书单</a>
           
         </li>
       
@@ -62,17 +62,17 @@
   <div class="content">
     <article>
         <section class="content markdown-body">
-          <h1>关于作者</h1>
+          <h1>阅读书单</h1>
           <div class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/01/13</time>
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2019/01/30</time>
             
             
           </div>
-          <h2 id="HuIskelvin"><a href="#HuIskelvin" class="headerlink" title="HuIskelvin"></a>HuIskelvin</h2><p><img src="https://s1.ax2x.com/2019/01/12/5d14iO.md.jpg" alt="avatar"></p>
-<blockquote>
-<p>初学者</p>
-</blockquote>
-<p>Github: <a href="https://github.com/HuIsKelvin">@HuIsKelvin</a><br>Mail: <a href="#">huiskelvin@qq.com</a></p>
+          <h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><ul>
+<li>《Vue.js 实战》</li>
+<li>《CSS世界》</li>
+<li>《HTML5 与 CSS3 基础教程》</li>
+</ul>
 
         </section>
     </article>
@@ -98,7 +98,7 @@
     <div class="toc-container">
         <h1>目录</h1>
         <div class="content">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#HuIskelvin"><span class="toc-number">1.</span> <span class="toc-text">HuIskelvin</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端"><span class="toc-number">1.</span> <span class="toc-text">前端</span></a></li></ol>
         </div>
     </div>
     
@@ -109,8 +109,8 @@
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname = "your_disqus_shortname";
-  var disqus_identifier = "https://github.com/huiskelvin/about/index.html";
-  var disqus_url = "https://github.com/huiskelvin/about/index.html";
+  var disqus_identifier = "https://github.com/huiskelvin/booklist/index.html";
+  var disqus_url = "https://github.com/huiskelvin/booklist/index.html";
 
   isAgent(getDisqus)
 
@@ -173,65 +173,6 @@
   </div>
 </footer>
 
-
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/lib/in-view.min.js"></script>
-<script src="/lib/lodash.min.js"></script>
-<script>
-  var isDown = true
-  var oldY = 0
-  inView.offset(50)
-
-  document.body.addEventListener('touchstart', function(){});
-  
-  window.addEventListener('scroll', _.throttle(e => {
-    var currentY = window.scrollY
-    if((oldY - currentY) < 0) {
-      isDown = true
-    } else {
-      isDown = false
-    }
-    oldY = currentY
-  }, 250))
-
-  $("article img").each(function() {
-      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
-      $(this).wrapAll(strA);
-  });
-
-  $('.toc-link').each(function() {
-      var href = $(this).attr("href");
-      
-      inView(href).on('exit', () => {
-        if (isDown) {
-          handleActive(href)
-        }
-      })
-
-      inView(href).on('enter', () => {
-        if (!isDown) {
-          handleActive(href)
-        }
-      })
-
-      this.onclick = function(e) {
-        var pos = $(href).offset().top - 10;
-        $("html,body").animate({scrollTop: pos}, 300);
-        setTimeout(() => {
-          handleActive(href)
-        }, 350)
-        return false
-      }
-  })
-
-  function handleActive(href) {
-    document.querySelectorAll('.toc-link').forEach(elm => {
-      elm.classList.remove('active')
-    })
-    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
-  }
-</script>
-<script src="/lib/jquery.fancybox.min.js"></script>
 
 
 </body>
